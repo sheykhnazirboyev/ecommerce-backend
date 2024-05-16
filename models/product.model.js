@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 export const ProductSchema = new mongoose.Schema({
-  name: {
+  title: {
+    type: String,
+    required: true,
+  },
+  subtitle: {
     type: String,
     required: true,
   },
@@ -21,9 +25,8 @@ export const ProductSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  sizes: {
+  size: {
     type: String,
-    enum: ['L', 'XL', 'XXL', 'XS'],
     required: true,
   },
   color: {
