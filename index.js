@@ -1,8 +1,12 @@
 import express from "express";
 import { homeRouter } from "./routes/home.js";
+import { cors } from "./middleware/cors.js";
+import connectDB from "./startup/db.js";
 
 const app = express();
 
+connectDB();
+app.use(cors);
 app.use(express.json());
 app.use("/", homeRouter)
 
