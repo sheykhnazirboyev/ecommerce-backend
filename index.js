@@ -6,10 +6,13 @@ import { categoryRouter } from "./routes/categories.js";
 import { productRouter } from "./routes/products.js";
 import { usersRouter } from "./routes/users.js";
 import { authRouter } from "./routes/auth.js";
+import checkConfig from "./startup/config.js";
 
 const app = express();
 
 connectDB();
+checkConfig();
+
 app.use(cors);
 app.use(express.json());
 app.use("/", homeRouter)
