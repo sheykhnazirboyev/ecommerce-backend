@@ -7,7 +7,7 @@ import bcrypt from "bcrypt";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-    const users = await UserModel.find();
+    const users = await UserModel.find().select("name");
     res.json(users);
 })
 
