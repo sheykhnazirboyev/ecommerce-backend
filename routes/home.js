@@ -2,9 +2,12 @@ import express from "express";
 
 const router = express.Router();
 
-
 router.get("/", (req, res) => {
-    res.send({ hello: "World", dbUrl: process.env.DB_UR });
+    if(process.env.DB_URL) {
+        res.send({ hello: "World" });
+    } else {
+        res.send({ bye: "World" });
+    }
 });
 
 export const homeRouter = router;
