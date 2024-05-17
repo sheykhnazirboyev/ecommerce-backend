@@ -1,6 +1,6 @@
 import express from "express";
 import { homeRouter } from "./routes/home.js";
-import { cors } from "./middleware/cors.js";
+import cors from "cors";
 import connectDB from "./startup/db.js";
 import { categoryRouter } from "./routes/categories.js";
 import { productRouter } from "./routes/products.js";
@@ -13,7 +13,8 @@ const app = express();
 connectDB();
 checkConfig();
 
-app.use(cors);
+
+app.use(cors());
 app.use(express.json());
 app.use("/", homeRouter)
 app.use("/api/categories", categoryRouter);
