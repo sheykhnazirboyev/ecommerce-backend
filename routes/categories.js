@@ -39,6 +39,8 @@ router.put("/:id", async (req, res) => {
       return res.status(400).send(error.details[0].message);
     }
     const newCategory = await CategoryModel.findByIdAndUpdate(id, req.body);
+
+    res.send(newCategory);
   } catch (err) {
     console.log("Error on getting category", err);
     next();
