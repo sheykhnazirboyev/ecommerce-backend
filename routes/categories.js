@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", [auth], async (req, res) => {
   const { id } = req.params;
   try {
     if (!validateObjectId(id)) return res.status(404).send("Invalid Object Id");
@@ -63,7 +63,7 @@ router.post("/", [auth], async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", [auth],  async (req, res) => {
   if (!validateObjectId(req.params.id))
     return res.status(404).send("Invalid Object Id");
 

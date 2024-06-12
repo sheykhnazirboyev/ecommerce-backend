@@ -42,7 +42,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", [auth], async (req, res, next) => {
   const { error } = validateProduct(req.body);
   if (error) {
     return res.status(400).send(error.details[0].message);
@@ -58,7 +58,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", [auth], async (req, res) => {
   if (!validateObjectId(req.params.id))
     return res.status(404).send("Invalid Object Id");
 
