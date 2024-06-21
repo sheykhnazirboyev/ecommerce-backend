@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
     if(email)
         return res.status(400).send("Email adready in use");
   
-    const user = new User(_.pick(req.body, ["name", "email", "password", "isAdmin"]));
+    const user = new UserModel(_.pick(req.body, ["name", "email", "password", "isAdmin"]));
   
     const salt = await bcrypt.genSalt();
     user.password = await bcrypt.hash(user.password, salt);
