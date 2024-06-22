@@ -8,6 +8,7 @@ import { usersRouter } from "./routes/users.js";
 import { authRouter } from "./routes/auth.js";
 import checkConfig from "./startup/config.js";
 import { registerRouter } from "./routes/register.js";
+import { userRouter } from "./routes/user.js";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use("/api/products", productRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/register", registerRouter)
+app.use("/api/users", userRouter);
 
 const port = process.env.PORT || 9001;
 
