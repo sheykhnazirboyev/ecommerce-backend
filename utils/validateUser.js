@@ -5,7 +5,7 @@ export function validateUser(user) {
     name: Joi.string().required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(5).required(),
-    role: Joi.string.required()
+    role: Joi.string().required()
   });
   return schema.validate(user);
 }
